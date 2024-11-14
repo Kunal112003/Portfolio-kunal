@@ -5,7 +5,7 @@ import recipe_rover from '../assets/images/Recipe_Rover.jpg';
 // import qriffic_vid from '../assets/images/qriffic_vid.mp4';
 import download from '../assets/images/download.png';
 import '../assets/styles/Project.scss';
-
+//import resume https 
 
 
 function Project() {
@@ -39,7 +39,16 @@ function Project() {
                 <hr />
             </div>
         </div>
+        <div className="resume-section">
+                <h1>Resume</h1>
+                <p>You can view and download my resume by clicking the link below:</p>
+                <a href="/resume.pdf" target="_blank" rel="noreferrer" className="resume-link">Download Resume</a>
+        </div>
     </div>
+
+
+    //resume download
+    // 
     );
 }
 
