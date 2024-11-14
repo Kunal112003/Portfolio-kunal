@@ -6,6 +6,8 @@ import recipe_rover from '../assets/images/Recipe_Rover.jpg';
 import download from '../assets/images/download.png';
 import '../assets/styles/Project.scss';
 
+
+
 function Project() {
     return(
     <div className="projects-container" id="projects">
