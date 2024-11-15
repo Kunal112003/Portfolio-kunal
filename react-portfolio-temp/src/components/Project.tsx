@@ -34,8 +34,8 @@ function Project() {
             </div>
             <div className="project">
                 <a href="https://github.com/Kunal112003/Search-planning-AI-project" target="_blank" rel="noreferrer"><img src={download} className="zoom" alt="thumbnail" width="100%"/></a>
-                <h2>Seach and Planning AI models</h2>
-                <p>This is an online educational platform that provides high-quality, data science-focused learning resources in the Japanese language. I created the entire platform from scratch using Ruby on Rails.</p>
+                <h2>Search and Planning AI models</h2>
+                <p>Developed a search and planning AI model using Python and Java, enabling the efficient search of large datasets. Implemented a heuristic search algorithm, improving search efficiency by 30%. Tech stack: Python, Java, AI, ML.</p>
                 <hr />
             </div>
         </div>
