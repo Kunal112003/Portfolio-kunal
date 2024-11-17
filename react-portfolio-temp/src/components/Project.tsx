@@ -39,10 +39,13 @@ function Project() {
                 <hr />
             </div>
         </div>
+        {/* // Update the resume section JSX */}
         <div className="resume-section">
-                <h1>Resume</h1>
-                <p>You can view and download my resume by clicking the link below:</p>
-                <a href="/resume.pdf" target="_blank" rel="noreferrer" className="resume-link">Download Resume</a>
+            <h1>View My Resume</h1>
+            <p>Download my resume to learn more about my experience and qualifications</p>
+            <a href="/resume.pdf" target="_blank" rel="noreferrer" className="resume-link">
+                Download Resume
+            </a>
         </div>
     </div>
 

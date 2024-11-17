@@ -48,39 +48,90 @@
     }
 }
 
+// Update the resume section styles
 .resume-section {
-    margin-top: 50px;
+    margin: 50px 0;
     text-align: center;
-    background-color: #f9f9f9;
-    padding: 40px 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 60px 40px;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url("../images/bg-dark.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+        opacity: 0.1;
+        z-index: 0;
+    }
 
     h1 {
-        font-size: 2em;
+        font-size: 2.5em;
         margin-bottom: 20px;
-        color: #333;
+        color: white;
+        position: relative;
+        z-index: 1;
     }
 
     p {
         font-size: 1.2em;
-        margin-bottom: 20px;
-        color: #666;
+        margin-bottom: 30px;
+        color: rgba(255, 255, 255, 0.9);
+        position: relative;
+        z-index: 1;
+        font-family: 'Courier Prime', monospace;
     }
 
     .resume-link {
-        font-size: 1.2em;
-        color: #fff;
-        background-color: #007bff;
+        display: inline-block;
+        font-size: 1.1em;
+        color: rgb(39, 40, 34);
+        background-color: white;
         text-decoration: none;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        transition: background-color 0.3s, color 0.3s;
+        border: 2px solid white;
+        padding: 12px 30px;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 1;
+        font-family: 'Courier Prime', monospace;
 
         &:hover {
-            background-color: #0056b3;
-            color: #fff;
+            background-color: transparent;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        &:active {
+            transform: translateY(0);
+        }
+    }
+
+    @media (max-width: 768px) {
+        margin: 30px 0;
+        padding: 40px 20px;
+
+        h1 {
+            font-size: 2em;
+        }
+
+        p {
+            font-size: 1.1em;
+            margin-bottom: 25px;
+        }
+
+        .resume-link {
+            padding: 10px 25px;
+            font-size: 1em;
         }
     }
 }
