@@ -1,116 +1,131 @@
-import React, { useRef, useState } from 'react';
-import '../assets/styles/Contact.scss';
-// import emailjs from '@emailjs/browser';
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import SendIcon from '@mui/icons-material/Send';
 import TextField from '@mui/material/TextField';
+import SendIcon from '@mui/icons-material/Send';
+import '../assets/styles/Contact.scss';
 
 function Contact() {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        message: ''
+    });
 
-  const [name, setName] = useState<string>('');
-  const [email, setEmail] = useState<string>('');
-  const [message, setMessage] = useState<string>('');
+    const [errors, setErrors] = useState({
+        name: false,
+        email: false,
+        message: false
+    });
 
-  const [nameError, setNameError] = useState<boolean>(false);
-  const [emailError, setEmailError] = useState<boolean>(false);
-  const [messageError, setMessageError] = useState<boolean>(false);
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [name]: value
+        }));
+        // Clear error when user starts typing
+        setErrors(prev => ({
+            ...prev,
+            [name]: false
+        }));
+    };
 
-  const form = useRef();
+    const validateEmail = (email: string) => {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    };
 
-  const sendEmail = (e: any) => {
-    e.preventDefault();
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        
+        // Validate form
+        const newErrors = {
+            name: formData.name.trim() === '',
+            email: !validateEmail(formData.email),
+            message: formData.message.trim() === ''
+        };
 
-    setNameError(name === '');
-    setEmailError(email === '');
-    setMessageError(message === '');
+        setErrors(newErrors);
 
-    /* Uncomment below if you want to enable the emailJS */
+        // If no errors, proceed with form submission
+        if (!Object.values(newErrors).includes(true)) {
+            // Handle form submission here
+            console.log('Form submitted:', formData);
+            
+            // Reset form after successful submission
+            setFormData({
+                name: '',
+                email: '',
+                message: ''
+            });
+        }
+    };
 
-    // if (name !== '' && email !== '' && message !== '') {
-    //   var templateParams = {
-    //     name: name,
-    //     email: email,
-    //     message: message
-    //   };
+    return (
+        <div className="contact-container" id="contact">
+            <div className="contact-content">
+                <h1>Get In Touch</h1>
+                <p>Have a project in mind? Let's collaborate and bring your ideas to life!</p>
+                
+                <Box
+                    component="form"
+                    onSubmit={handleSubmit}
+                    className="contact-form"
+                    noValidate
+                >
+                    <div className="form-flex">
+                        <TextField
+                            required
+                            name="name"
+                            label="Your Name"
+                            placeholder="What's your name?"
+                            value={formData.name}
+                            onChange={handleChange}
+                            error={errors.name}
+                            helperText={errors.name ? "Please enter your name" : ""}
+                            variant="outlined"
+                        />
+                        <TextField
+                            required
+                            name="email"
+                            label="Email Address"
+                            placeholder="How can I reach you?"
+                            value={formData.email}
+                            onChange={handleChange}
+                            error={errors.email}
+                            helperText={errors.email ? "Please enter a valid email" : ""}
+                            variant="outlined"
+                        />
+                    </div>
 
-    //   console.log(templateParams);
-    //   emailjs.send('service_id', 'template_id', templateParams, 'api_key').then(
-    //     (response) => {
-    //       console.log('SUCCESS!', response.status, response.text);
-    //     },
-    //     (error) => {
-    //       console.log('FAILED...', error);
-    //     },
-    //   );
-    //   setName('');
-    //   setEmail('');
-    //   setMessage('');
-    // }
-  };
+                    <TextField
+                        required
+                        name="message"
+                        label="Message"
+                        placeholder="What would you like to discuss?"
+                        multiline
+                        rows={6}
+                        value={formData.message}
+                        onChange={handleChange}
+                        error={errors.message}
+                        helperText={errors.message ? "Please enter your message" : ""}
+                        className="body-form"
+                        variant="outlined"
+                    />
 
-  return (
-    <div id="contact">
-      <div className="items-container">
-        <div className="contact_wrapper">
-          <h1>Contact Me</h1>
-          <p>Got a project waiting to be realized? Let's collaborate and make it happen!</p>
-          <Box
-            ref={form}
-            component="form"
-            noValidate
-            autoComplete="off"
-            className='contact-form'
-          >
-            <div className='form-flex'>
-              <TextField
-                required
-                id="outlined-required"
-                label="Your Name"
-                placeholder="What's your name?"
-                value={name}
-                onChange={(e) => {
-                  setName(e.target.value);
-                }}
-                error={nameError}
-                helperText={nameError ? "Please enter your name" : ""}
-              />
-              <TextField
-                required
-                id="outlined-required"
-                label="Email / Phone"
-                placeholder="How can I reach you?"
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
-                error={emailError}
-                helperText={emailError ? "Please enter your email or phone number" : ""}
-              />
+                    <div className="submit-button">
+                        <Button 
+                            type="submit"
+                            variant="contained"
+                            endIcon={<SendIcon />}
+                        >
+                            Send Message
+                        </Button>
+                    </div>
+                </Box>
             </div>
-            <TextField
-              required
-              id="outlined-multiline-static"
-              label="Message"
-              placeholder="Send me any inquiries or questions"
-              multiline
-              rows={10}
-              className="body-form"
-              value={message}
-              onChange={(e) => {
-                setMessage(e.target.value);
-              }}
-              error={messageError}
-              helperText={messageError ? "Please enter the message" : ""}
-            />
-            <Button variant="contained" endIcon={<SendIcon />} onClick={sendEmail}>
-              Send
-            </Button>
-          </Box>
         </div>
-      </div>
-    </div>
-  );
+    );
 }
 
 export default Contact;
