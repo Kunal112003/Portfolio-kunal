@@ -1,38 +1,188 @@
-.vertical-timeline span {
-    color: white;
-    font-family: 'Courier Prime', monospace;
+.timeline-container {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 80px 0;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url("../images/bg-dark.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+        opacity: 0.1;
+        z-index: 0;
+    }
+
+    .items-container {
+        position: relative;
+        z-index: 1;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+
+        h1 {
+            color: white;
+            font-size: 2.8em;
+            margin-bottom: 50px;
+            text-align: center;
+            font-family: 'Courier Prime', monospace;
+        }
+    }
 }
 
-.vertical-timeline p {
-    color: rgb(39, 40, 34);
+// Timeline Styling
+.vertical-timeline {
+    &::before {
+        background: rgba(255, 255, 255, 0.1) !important;
+        width: 3px !important;
+    }
 }
 
-.vertical-timeline-element p {
-    color: rgb(39, 40, 34);
+// Update the icon styling in the timeline
+.vertical-timeline-element {
+    .vertical-timeline-element-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(80, 0, 202, 0.8) !important;
+        box-shadow: 0 0 0 4px rgba(80, 0, 202, 0.4), inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05) !important;
+        
+        svg {
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.3s ease;
+        }
+
+        &:hover svg {
+            transform: translate(-50%, -50%) scale(1.2);
+        }
+    }
+
+    &:hover {
+        .vertical-timeline-element-icon {
+            background: rgba(80, 0, 202, 0.9) !important;
+        }
+    }
 }
 
-.vertical-timeline-element h3 {
-    color: rgb(39, 40, 34);
+.vertical-timeline-element-content {
+    background: rgba(255, 255, 255, 0.05) !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 12px !important;
+    padding: 2em !important;
+    transition: all 0.3s ease;
+
+    &::before {
+        border-right-color: rgba(255, 255, 255, 0.05) !important;
+    }
+
+    .vertical-timeline-element-date {
+        color: rgba(255, 255, 255, 0.9) !important;
+        font-family: 'Courier Prime', monospace;
+        font-size: 1.1em !important;
+        opacity: 0.9;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .vertical-timeline-element-title {
+        color: white !important;
+        font-size: 1.5em !important;
+        margin-bottom: 10px;
+        font-family: 'Courier Prime', monospace;
+        font-weight: 600;
+    }
+
+    .vertical-timeline-element-subtitle {
+        color: rgba(255, 255, 255, 0.9) !important;
+        font-size: 1.1em !important;
+        margin-bottom: 8px;
+        font-family: 'Courier Prime', monospace;
+    }
+
+    p {
+        color: rgba(255, 255, 255, 0.8) !important;
+        font-size: 0.95em !important;
+        line-height: 1.6;
+        margin-top: 15px;
+        font-family: 'Courier Prime', monospace;
+    }
+
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 15px;
+
+        .tag {
+            background: rgba(80, 0, 202, 0.2);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-family: 'Courier Prime', monospace;
+            border: 1px solid rgba(80, 0, 202, 0.3);
+            transition: all 0.3s ease;
+
+            &:hover {
+                background: rgba(80, 0, 202, 0.3);
+                transform: translateY(-2px);
+            }
+        }
+    }
 }
 
-.vertical-timeline-element h4 {
-    color: rgb(39, 40, 34);
-}
-
-.vertical-timeline-element span {
-    color: rgb(39, 40, 34);
-}
-
-.vertical-timeline-element .vertical-timeline-element-date {
-    color: white;
-}
-
-.svg-inline--fa {
-    color: white;
-}
-
+// Responsive Design
 @media screen and (max-width: 1170px) {
-    .vertical-timeline-element .vertical-timeline-element-date {
-        color: rgb(39, 40, 34);
+    .timeline-container {
+        padding: 60px 0;
+
+        .items-container h1 {
+            font-size: 2.2em;
+            margin-bottom: 40px;
+        }
+    }
+
+    .vertical-timeline-element-content {
+        .vertical-timeline-element-date {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .timeline-container {
+        padding: 40px 0;
+    }
+
+    .vertical-timeline-element-content {
+        padding: 1.5em !important;
+
+        .vertical-timeline-element-title {
+            font-size: 1.3em !important;
+        }
+
+        .vertical-timeline-element-subtitle {
+            font-size: 1em !important;
+        }
+
+        p {
+            font-size: 0.9em !important;
+        }
+
+        .tags .tag {
+            font-size: 0.8em;
+        }
     }
 }
