@@ -11,7 +11,7 @@ function Main() {
       <div className="about-section">
         <div className="image-wrapper">
           
-          <img src={kunal} alt="Avatar" style={{ width: '220px', height: '250px', borderRadius: '50%' }}/>
+          <img src={kunal} alt="Avatar" style={{ width: '210px', height: '250px', borderRadius: '50%' }}/>
 
 
           
