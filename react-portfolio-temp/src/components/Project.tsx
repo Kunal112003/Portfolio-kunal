@@ -13,7 +13,7 @@ function Project() {
             <div className="projects-grid">
 
             <div className="project">
-                    <a href="https://github.com/CodeToGive-2024-Team6/CodeToGive-2024" 
+                    <a href="https://github.com/NatRunners/StudyAmp" 
                        target="_blank" 
                        rel="noreferrer">
                         <div className="project-image-container">
