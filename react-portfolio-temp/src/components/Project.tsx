@@ -4,12 +4,26 @@ import shelter from '../assets/images/image.png';
 import recipe_rover from '../assets/images/Recipe_Rover.jpg';
 import download from '../assets/images/download.png';
 import '../assets/styles/Project.scss';
+import studyamp from '../assets/images/studyamp.png';
 
 function Project() {
     return (
         <div className="projects-container" id="projects">
             <h1>Personal Projects</h1>
             <div className="projects-grid">
+
+            <div className="project">
+                    <a href="https://github.com/CodeToGive-2024-Team6/CodeToGive-2024" 
+                       target="_blank" 
+                       rel="noreferrer">
+                        <div className="project-image-container">
+                            <img src={studyamp} alt="StudyAmp project thumbnail" />
+                        </div>
+                    </a>
+                    <h2>StudyAmp | NatHacks 2024 Winner</h2>
+                    <p>Developed an AI-driven attention monitoring system using Muse 2 EEG, Brainflow, and Neural Networks, achieving 95% accuracy in real-time focus tracking. Integrated Gemini API and RAG LLM to boost focus retention by 30% and provide personalized summaries. Built an interactive Chart.js visualization platform, increasing engagement by 40%, and implemented a scalable FastAPI backend for multi-user EEG data processing.</p>
+                    <hr />
+                </div>
                 <div className="project">
                     <a href="https://github.com/CodeToGive-2024-Team6/CodeToGive-2024" 
                        target="_blank" 
@@ -18,7 +32,7 @@ function Project() {
                             <img src={shelter} alt="Shelter for women project thumbnail" />
                         </div>
                     </a>
-                    <h2>Shelter for Women</h2>
+                    <h2>Shelter for Women | Morgan Stanley CodeToGive Hackathon Winner</h2>
                     <p>Developed an intervention plan system to support women in need using React, Express.js, Firebase, Node.js, and CSS. Implemented goal-setting and real-time messaging, enhancing customization and communication.</p>
                     <hr />
                 </div>
