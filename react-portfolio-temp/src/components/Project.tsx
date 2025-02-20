@@ -5,14 +5,29 @@ import recipe_rover from '../assets/images/Recipe_Rover.jpg';
 import download from '../assets/images/download.png';
 import '../assets/styles/Project.scss';
 import studyamp from '../assets/images/studyamp.png';
+import medicheck from '../assets/images/gallery.jpg';
+
 
 function Project() {
     return (
         <div className="projects-container" id="projects">
             <h1>Personal Projects</h1>
             <div className="projects-grid">
+                <div className="project">
+                    <a href="https://github.com/A-D-I-T-C/medicheck" 
+                       target="_blank" 
+                       rel="noreferrer">
+                        <div className="project-image-container">
+                            <img src={medicheck} alt="Medicheck project thumbnail" />
+                        </div>
+                    </a>
+                    <h2>MediCheck | HackEd 2025 Winner</h2>
+                    <p>Developed an AI-driven healthcare assistant using a custom RAG-based LLM pipeline with LangChain, Hugging Face, and a Vector DB, improving medical response accuracy by 35%. Built a full-stack platform with Next.js and a Java backend, reducing appointment scheduling time by 40%. Optimized data retrieval with PostgreSQL and Redis, increasing system efficiency by 50%.</p>
+                    <hr />
 
-            <div className="project">
+                </div>
+
+                <div className="project">
                     <a href="https://github.com/NatRunners/StudyAmp" 
                        target="_blank" 
                        rel="noreferrer">
@@ -80,7 +95,7 @@ function Project() {
         <div className="resume-section">
             <h1>View My Resume</h1>
             <p>Download my resume to learn more about my experience and qualifications</p>
-            <a href="/resume.pdf" target="_blank" rel="noreferrer" className="resume-link">
+            <a href="/KunalRao_Resume.pdf" target="_blank" rel="noreferrer" className="resume-link">
                 Download Resume
             </a>
         </div>

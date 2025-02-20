@@ -16,16 +16,17 @@ interface TimelineItem {
 
 const timelineData: TimelineItem[] = [
     {
-        title: "Software Developer Co-op",
-        company: "Royal Bank of Canada (RBC)",
-        location: "Calgary, AB",
-        date: "Dec 2024 - Present",
-        description: [
-            "Develop and enhance CRM components using Python, SQL, and JavaScript.",
-            "Design Wealth Management solutions leveraging Azure and DevOps practices.",
-            "Automate workflows and ensure seamless deployment through Agile methodologies."
+        "title": "Software Developer Co-op",
+        "company": "Royal Bank of Canada (RBC)",
+        "location": "Toronto, ON",
+        "date": "Jan 2025 - Present",
+        "description": [
+            "Develop WMT components with Python, SQL, JavaScript, and Java, boosting system performance by 20%.",
+            "Build real-time data pipelines using Snowflake, Kafka, and GraphQL, cutting latency by 35%.",
+            "Implement Azure DevOps, CI/CD, and cloud best practices, reducing deployment time by 30%.",
+            "Enhance platform scalability for 70,000+ financial advisors through Agile development."
         ],
-        skills: ["CRM", "Python", "SQL", "JavaScript", "Azure", "DevOps", "Agile"]
+        "skills": ["Python", "SQL", "JavaScript", "Java", "Snowflake", "Kafka", "GraphQL", "Azure DevOps", "CI/CD", "Cloud", "Agile"]
     },
     {
         title: "Software Engineer",
